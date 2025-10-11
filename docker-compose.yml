@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:15
+    container_name: aqi_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: aqiuser
+      POSTGRES_PASSWORD: aqipassword
+      POSTGRES_DB: aqidb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  api:
+    build: .
+    container_name: aqi_api
+    ports:
+      - "5000:5000"
+    env_file: .env
+    depends_on:
+      - db
+
+volumes:
+  db_data:
