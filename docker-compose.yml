@@ -1,8 +1,9 @@
+version: "3.8"
+
 services:
   db:
     image: postgres:15
     container_name: aqi_postgres
-    restart: always
     environment:
       POSTGRES_USER: aqiuser
       POSTGRES_PASSWORD: aqipassword
@@ -12,14 +13,22 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
+  redis:
+    image: redis:latest
+    container_name: aqi_redis
+    ports:
+      - "6379:6379"
+
   api:
     build: .
     container_name: aqi_api
-    ports:
-      - "5000:5000"
-    env_file: .env
     depends_on:
       - db
+      - redis
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
 
 volumes:
   db_data:
