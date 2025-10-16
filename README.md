@@ -1,6 +1,6 @@
 # AQI Monitoring & Chatbot API
 
-A **Node.js + TypeScript** API that fetches **real-time Air Quality (AQI)** data for Indian cities, stores it in **PostgreSQL**, and provides both REST endpoints and an **AI-powered chatbot interface** for natural language queries.
+A **RESTful** API that fetches **real-time Air Quality (AQI)** data for Indian cities, stores it in **PostgreSQL**, and provides both REST endpoints and an **AI-powered LLM chatbot interface** for natural language queries.
 
 ---
 
@@ -9,7 +9,7 @@ A **Node.js + TypeScript** API that fetches **real-time Air Quality (AQI)** data
 - **Backend:** Node.js, Express.js, TypeScript  
 - **Database:** PostgreSQL (Dockerized)  
 - **External API:** OpenWeather Air Pollution API  
-- **AI Model:** Groq (Llama 3 8B)  
+- **AI Model:** Groq (Llama-3.1)  
 - **Tools:** Docker Desktop, Postman, dotenv  
 
 ---
@@ -19,10 +19,15 @@ A **Node.js + TypeScript** API that fetches **real-time Air Quality (AQI)** data
 ✅ Fetch real-time AQI data for any city  
 ✅ Store AQI readings in PostgreSQL  
 ✅ RESTful API with `/aqi/:city` endpoint  
+✅ JWT Authentication and Redis caching  
 ✅ AI Chatbot (LLM) that answers natural language queries  
 ✅ Dockerized setup for full-stack deployment  
 
 ---
+
+### Screenshot
+
+<img width="800" height="600" alt="Image" src="https://github.com/user-attachments/assets/55dafa5b-f2ac-4584-9f48-3782e4e8d408" />
 
 ## ⚙️ Setup Instructions
 
